@@ -1,3 +1,9 @@
+1. react CRA 설치
+2. SCSS 를 사용하기위해 sass module 설치
+3. 컴포넌트 생성 header
+4. 리액트 환경 페이지 이동을 위한 라우터 설치
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
