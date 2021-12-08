@@ -1,12 +1,7 @@
 function Page2 () {
     return(
         <>
-            <div>
-    페이지222222입니다.
-            </div>
-            <div>sdsdsad
-
-            </div>
+            메뉴2의 페이지입니다.
         </>
     );
 }

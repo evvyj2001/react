@@ -1,0 +1,180 @@
+@charset "UTF-8";
+
+//mixin
+@mixin clearfix{ //@include clearfix;
+    &:after{
+        content:''; 
+        display:block; 
+        clear:both;
+    }
+}
+@mixin blind{ //@include blind;
+    // position: absolute;
+    // top: 0;
+    // left: -9999px;
+    // width: 1px;
+    // height: 1px;
+    // clip: rect(0 0 0 0);
+    // overflow: hidden;
+    // text-indent: 100%;
+    // white-space: nowrap;
+    // color: transparent;
+
+    //웹접근성 고려한 css
+    position: absolute;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+}
+@mixin textBlind{ //@include textBlind;
+    font-size: 1px;
+    text-indent: -9999rem;
+    color: transparent;
+    overflow: hidden;
+}
+@mixin ellipsis{ //@include ellipse;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+@mixin ellipsis02{ //@include ellipsis02;
+    word-wrap: break-word;
+    -webkit-box-orient: vertical;
+    // height: font-size의 2배값 지정;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    @content;
+}   
+// font 관련 mixin 
+@mixin fontSet($family,$size,$weight){
+    font : {
+        family : $family;
+        size : $size;
+        weight : $weight;
+    }
+}
+
+// positioning 한줄 축약 mixin 
+@mixin position($position, $args){
+    @each $o in top right bottom left{
+        $i: index($arg, $o);
+        @if $i and $i + 1<= length($args) and type-of(nth($args, $i + 1)) == number{
+            #{$o}: nth($args, $i + i);
+        }
+    }
+    position: $position;
+}
+
+// @include absolute(top 0 right 0 bottom left 0);
+@mixin absolute($args){
+    @include position(absolute, $args);
+}
+
+// @include fixed(top 0 right 0 bottom left 0);
+@mixin fixed($args){
+    @include position(fixed, $args);
+}
+
+// @include relative(top 0 right 0 bottom left 0);
+@mixin relative($args){
+    @include position(relative, $args);
+}
+
+//triangle (세모 - 방향별)
+//@include iconTriangle($direction: 'up', $width: 2rem, $height: 1rem, $color: #000, $display: inline-block);
+@mixin iconTriangle($direction: 'up', $width: 2rem, $height: 1rem, $color: #000, $display: inline-block){
+    display: $display;
+    width: $width;
+    height: $height;
+    &:before{
+        content: '';
+        display: block;
+        @if ($direction == 'up') {
+            border-bottom: $height solid $color;
+            border-left: round($width/2) solid transparent;
+            border-right: round($width/2) solid transparent;
+        } @else if ($direction == 'down') {
+            border-top: $height solid $color;
+            border-left: round($width/2) solid transparent;
+            border-right: round($width/2) solid transparent;
+        } @else if ($direction == 'left') {
+            border-right: $width solid $color;
+            border-top: round($height/2) solid transparent;
+            border-bottom: round($height/2) solid transparent;
+        } @else if ($direction == 'right') {
+            border-left: $width solid $color;
+            border-top: round($height/2) solid transparent;
+            border-bottom: round($height/2) solid transparent;
+        }
+    }
+}
+
+//arrow (화살표)
+$sqrt_2: 1.41421356237;
+@mixin iconAngle($direction: 'up', $width: 5rem, $height: 2.5rem, $thick: .2rem, $color: #000, $display: inline-block){
+    position: $position;
+    display: $display;
+    width: $width;
+    height: $height;
+    @if ($direction == 'up' or $direction == 'down') {
+        $size: floor($width/$sqrt_2 - 2*$thick);
+        $rate: 2*$height/$width;
+        $margin-top: round($rate*$size/(2*$sqrt_2));
+        &:before{
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: $size;
+            height: $size;
+            @if ($rate == 1) {
+                transform: translate(-50%, -50%) rotate(45deg);
+            } @else {
+                transform: translate(-50%, -50%) scale(1, $rate) rotate(45deg);
+            }
+            @if ($direction == 'up') {
+                margin-top: $margin-top;
+                border-top: $thick solid $color;
+                border-left: $thick solid $color;
+            } @else if ($direction == 'down') {
+                margin-top: - $margin-top;
+                border-right: $thick solid $color;
+                border-bottom: $thick solid $color;
+            }
+        }
+    } @else if ($direction == 'left' or $direction == 'right') {
+        $size: floor($height/$sqrt_2 - 2*$thick);
+        $rate: 2*$width/$height;
+        $margin-left: round($rate*$size/(2*$sqrt_2));
+        &:before{
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: $size;
+            height: $size;
+            @if ($rate == 1) {
+                transform: translate(-50%, -50%) rotate(45deg);
+            } @else {
+                transform: translate(-50%, -50%) scale($rate, 1) rotate(45deg);
+            }
+            @if ($direction == 'left') {
+                margin-left: $margin-left;
+                border-left: $thick solid $color;
+                border-bottom: $thick solid $color;
+            } @else if($direction == 'right') {
+                margin-left: - $margin-left;
+                border-top: $thick solid $color;
+                border-right: $thick solid $color;
+            }
+        }
+    }
+}

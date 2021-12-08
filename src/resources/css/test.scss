@@ -1,0 +1,70 @@
+@charset "UTF-8";
+@import "base";
+
+.clock-box{
+    text-align: right;
+    width: 1200px;
+    font-size: 16px;
+    >h2{
+        margin-right: 15px;
+        font-weight: 700;
+        display: inline-block;
+    }
+    >p{
+        display: inline-block;
+    }
+}
+
+.visual{
+    .swiper-slide{
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:nth-of-type(even){
+            background: rgb(68, 94, 212);
+        }
+        &:nth-of-type(odd){
+            background: rgb(253, 213, 213);
+        }
+    }
+    [class^='swiper-button-']{
+        width: 30px;
+        height: 50px;
+        z-index: 2;
+        background: #fff;
+        position: absolute;
+        top: 50%;
+        margin-top: -25px;
+        &[class*='prev']{
+            left: 5%;
+        }
+        &[class*='next']{
+            right: 5%;
+        }
+        &[class*='disabled']{
+            opacity: 0.3;
+        }
+    }
+    .swiper-pagination{
+        height: 15px;
+        position: absolute;
+        bottom: 5%;
+        left: 5%;
+        z-index: 2;
+        [class*='-bullet']{
+            display: block;
+            width: 15px;
+            height: 15px;
+            background: #ccc;
+            border-radius: 50%;
+            float: left;
+            margin-right: 5px;
+        }
+        [class*='-active']{
+            background:rgb(228, 100, 200);
+        }
+    }
+}
+
+// @import "_test_child";

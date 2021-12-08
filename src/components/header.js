@@ -1,15 +1,34 @@
 
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+// import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import Clock from '../components/Clock';
 
 function Header() {
   return (
-    <header className="header">
-      <ul>
-        <li><Link to="/hehe">메뉴1입니다.</Link></li>
-        <li><Link to="/haha">메뉴2</Link></li>
-      </ul>
-    </header>
+    <header id="headerArea">
+      <div className="header-inner">
+        <h1>
+          <Link to="/main">로고</Link>
+        </h1>
+      <div className="nav-wrap">
+        <nav id="nav">
+          <ul>
+            <li>
+              <Link to="/hehe">메뉴1</Link>
+            </li>
+            <li>
+              <Link to="/haha">메뉴2</Link>
+            </li>
+            <li>
+              <Link to="/hihi">메뉴3</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <Clock />
+    </div>    
+  </header>
   );
 }
 
