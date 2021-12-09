@@ -4,9 +4,22 @@ import React, { Component } from 'react';
 class Clock extends Component{
     constructor(props) {
         super(props);
+        var date1 = new Date().getFullYear(), 
+            date2 = new Date().getMonth(),
+            date3 = new Date().getDate(),
+            day = new Date(),
+            WeekDay = ['일', '월', '화', '수', '목', '금', '토'],
+            week = WeekDay[day.getDay()];
+        
+        var hour = new Date().getHours(),
+            minutes = new Date().getMinutes(),
+            second = new Date().getSeconds();    
+
         this.state = {
-            date : new Date()
+            // date : new Date()
+            date : `${date1}년 ${date2}월 ${date3}일 ${week}요일 ${hour}시 ${minutes}분 ${second}초`
         }
+        
     };
 
     //컴포넌트 생명주기
@@ -20,28 +33,34 @@ class Clock extends Component{
         clearInterval(this.timerID);
     }
     tick() {
+        var date1 = new Date().getFullYear(), 
+            date2 = new Date().getMonth(),
+            date3 = new Date().getDate(),
+            day = new Date(),
+            WeekDay = ['일', '월', '화', '수', '목', '금', '토'],
+            week = WeekDay[day.getDay()];
+        
+        var hour = new Date().getHours(),
+            minutes = new Date().getMinutes(),
+            second = new Date().getSeconds();    
+
         this.setState(
-            {date : new Date()}
+            // {date : new Date()}
+            {
+                date : `${date1}년 ${date2}월 ${date3}일 ${week}요일 ${hour}시 ${minutes}분 ${second}초`
+            }
         )
     }
 
     render() {
         return (
             <div className="clock-box">
-                <h2>현재 시간은??</h2>
-                <p>{ this.state.date.toLocaleString() } 입니다.</p>
+                <h2>현재시각</h2>
+                <p>{ this.state.date.toLocaleString() }</p>
             </div>
         );
     }
 }
 
-// function Clock() {
-
-//     return (
-//         <div>
-//             Clock components
-//         </div>
-//     );
-// }
 
 export default Clock;

@@ -20,6 +20,7 @@ var comm = {
         }
     },
     clickAction : function(){ // 클릭이벤트
+
         //nav
         var btnNav = $('.nav-btn'), btnNavClose = $('.nav-close'), nav = $('.nav-wrap'), tabBtn = $('.tab-list>li'), tabCont = $('.tab-cont>li');
 

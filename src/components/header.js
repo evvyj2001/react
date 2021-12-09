@@ -15,13 +15,16 @@ function Header() {
         <nav id="nav">
           <ul>
             <li>
-              <Link to="/hehe">메뉴1</Link>
+              <Link to="/hehe" className="on">메뉴1</Link>
             </li>
             <li>
               <Link to="/haha">메뉴2</Link>
             </li>
             <li>
               <Link to="/hihi">메뉴3</Link>
+            </li>
+            <li>
+              <Link to="/cc">참고페이지</Link>
             </li>
           </ul>
         </nav>

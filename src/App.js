@@ -10,6 +10,7 @@ import PageMain from './pages/main';
 import SubPage1 from './pages/subpage1';
 import SubPage2 from './pages/subpage2';
 import SubPage3 from './pages/subpage3';
+import PageCC from './pages/subpage_cc';
 
 // function Test() {
 //   return (
@@ -31,6 +32,7 @@ function App() {
               <Route exact path="/hehe" element={<SubPage1 />} />
               <Route exact path="/haha" element={<SubPage2 />} />
               <Route exact path="/hihi" element={<SubPage3 />} />
+              <Route exact path="/cc" element={<PageCC />} />
             </Routes>
           </div>
 
