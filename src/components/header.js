@@ -3,6 +3,7 @@ import React from 'react';
 // import { Route, Link } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Clock from '../components/Clock';
+import '../resources/css/test.scss';
 
 function Header() {
   return (
@@ -15,10 +16,10 @@ function Header() {
         <nav id="nav">
           <ul>
             <li>
-              <Link to="/hehe" className="on">메뉴1</Link>
+              <Link to="/hehe" className="on">GSAP</Link>
             </li>
             <li>
-              <Link to="/haha">메뉴2</Link>
+              <Link to="/haha">AOS</Link>
             </li>
             <li>
               <Link to="/hihi">메뉴3</Link>

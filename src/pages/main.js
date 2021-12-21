@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
 import 'swiper/swiper.scss';
 import '../resources/css/test.scss';
-import SwiperCore, { Autoplay, Navigation, Pagination, Thumbs } from 'swiper';
+import SwiperCore, { Autoplay, Navigation, Pagination, Thumbs, FreeMode} from 'swiper';
 
-SwiperCore.use([Autoplay,Navigation,Pagination,Thumbs]);
+SwiperCore.use([Autoplay,Navigation,Pagination,Thumbs,FreeMode]);
 
 function PageMain() {
     // const pagination = {
@@ -14,7 +14,7 @@ function PageMain() {
     //     }
     // }
 
-    const [thumbsSwiper, setThumbsSwiper] = useState(null);
+    const [thumbsSwiper, setThumbsSwiper, ] = useState(null);
 
         return (
         <>
@@ -43,7 +43,13 @@ function PageMain() {
                 <Swiper 
                 spaceBetween={0} 
                 navigation={true} 
+                autoplay={{
+                    "delay": 2500,
+                    "disableOnInteraction": false
+                }}
                 thumbs={{ swiper: thumbsSwiper }} 
+                loop={true}
+                // freeMode={true}
                 className="mySwiper2">
                     <SwiperSlide>slide1</SwiperSlide>
                     <SwiperSlide>slide2</SwiperSlide>
@@ -63,16 +69,16 @@ function PageMain() {
                 freeMode={true} 
                 watchSlidesProgress={true} 
                 className="mySwiper">
-                    <SwiperSlide>이미지1</SwiperSlide>
-                    <SwiperSlide>이미지2</SwiperSlide>
-                    <SwiperSlide>이미지3</SwiperSlide>
-                    <SwiperSlide>이미지4</SwiperSlide>
-                    <SwiperSlide>이미지5</SwiperSlide>
-                    <SwiperSlide>이미지6</SwiperSlide>
-                    <SwiperSlide>이미지7</SwiperSlide>
-                    <SwiperSlide>이미지8</SwiperSlide>
-                    <SwiperSlide>이미지9</SwiperSlide>
-                    <SwiperSlide>이미지10</SwiperSlide>
+                    <SwiperSlide>슬라이드1</SwiperSlide>
+                    <SwiperSlide>슬라이드2</SwiperSlide>
+                    <SwiperSlide>슬라이드3</SwiperSlide>
+                    <SwiperSlide>슬라이드4</SwiperSlide>
+                    <SwiperSlide>슬라이드5</SwiperSlide>
+                    <SwiperSlide>슬라이드6</SwiperSlide>
+                    <SwiperSlide>슬라이드7</SwiperSlide>
+                    <SwiperSlide>슬라이드8</SwiperSlide>
+                    <SwiperSlide>슬라이드9</SwiperSlide>
+                    <SwiperSlide>슬라이드10</SwiperSlide>
                 </Swiper>
             </div>
             <div className="section1">

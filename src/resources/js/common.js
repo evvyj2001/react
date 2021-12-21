@@ -1,12 +1,12 @@
 // w3c에서 제공하는 html 내 include 시키는 function
 // w3.includeHTML();
 import $ from 'jquery';
-// window.$ = $;
+window.$ = $;
 
 var comm = {
     init : function(){
         this.UserAgent();
-        // this.scrollAction();
+        this.scrollAction();
         this.clickAction();
         this.bodyScroll();
     },
@@ -90,4 +90,5 @@ var comm = {
 
 $(document).ready(function(){
     comm.init();
+    console.log('되는건가')
 });

@@ -15,7 +15,7 @@ const customStyle = {
     // color: state.data.color,
     color: state.isFocused ? state.isSelected ? '#333' : '#fff' : '#333',
     background: state.isFocused ? state.isSelected ? '#fff' : 'blue' : 'white',
-    opacity: 0.8,
+    opacity: 1,
   }),
   control: (provided) => ({
     ...provided,
